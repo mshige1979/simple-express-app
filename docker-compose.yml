@@ -23,4 +23,4 @@ services:
     ports:
       - 5000:5000
     # 起動コマンド
-    command: bash -c "npm install && node /app/index.js"
+    command: bash -c "npm install && npm run dev"

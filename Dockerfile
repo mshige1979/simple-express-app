@@ -18,10 +18,11 @@ COPY . /app
 
 # npm install
 RUN cd /app && \
-    npm install
+    npm install && \
+    npm run build
 
 # ポート
 EXPOSE 5000
 
 # パラメータ未指定時の起動コマンド
-CMD bash -c "npm install && node index.js"
+CMD bash -c "node /app/dist/index.js"
