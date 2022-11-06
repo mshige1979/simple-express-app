@@ -16,6 +16,7 @@ app.use(express.static("public"));
 // 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+/*
 // DB
 const con = mysql2.createConnection({
   host: process.env.DATABASE_HOST,
@@ -28,8 +29,10 @@ con.connect(function (err) {
   if (err) throw err;
   console.log('Connected');
 });
+*/
 
 app.get("/", (req: express.Request, res: express.Response) => {
+  /*
   // simple query
   con.query(
     "SELECT * FROM `users`",
@@ -44,8 +47,9 @@ app.get("/", (req: express.Request, res: express.Response) => {
       });
     }
   );
-
-
+  */
+  //res.send("Hello World! App Runner Test3-3");
+  res.render('index',);
 });
 
 app.listen(port, () => {
