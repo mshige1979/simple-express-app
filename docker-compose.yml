@@ -19,8 +19,40 @@ services:
     # 環境変数
     environment:
       TZ: "Asia/Tokyo"
+      DATABASE_HOST: db
+      DATABASE_NAME: sample_db
+      DATABASE_USER: root
+      DATABASE_PASS: password
     # ポート開放
     ports:
       - 5000:5000
     # 起動コマンド
     command: bash -c "npm install && npm run dev"
+    # 他のコンテナ起動後に起動するように制御
+    depends_on:
+      - db
+
+  # DBサーバ
+  db:
+    # コンテナ名
+    container_name: db
+    # image
+    image: mysql:8.0.28
+    # 環境設定
+    environment:
+      TZ: "Asia/Tokyo"
+      MYSQL_DATABASE: sample_db
+      MYSQL_ROOT_PASSWORD: password
+    # コンテナの中に入る
+    tty: true
+    # ボリューム
+    volumes:
+      - mysql_data:/var/lib/mysql
+    # ポート開放
+    ports:
+      - 3306:3306
+
+# 名前付きボリュームをdockerホストの管理下で作成
+volumes:
+  # postgresqk
+  mysql_data: {}

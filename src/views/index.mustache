@@ -1,10 +1,41 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Simple Web App</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-    Hello2-2
+    <header>
+        <div style="height: 50px;background-color: #000;color:#FFF;margin-bottom: 10px;padding: 5px;">
+            Hello2-3
+        </div>    
+    </header>
+    <div class="container">
+        <div>
+            <button class="btn btn-primary">新規</button>
+        </div>
+        <table class="table">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th></th>
+            </thead>
+            {{#items}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{name}}</td>
+                <td>{{age}}</td>
+                <td>
+                    <button class="btn">詳細</button>
+                    <button class="btn btn-success">編集</button>
+                    <button class="btn btn-warning">削除</button>
+                </td>
+            </tr>
+            {{/items}}    
+        </table>
+    </div>
 </body>
 </html>

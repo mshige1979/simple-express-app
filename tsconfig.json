@@ -105,6 +105,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.mustache"],
   "exclude": ["node_modules"]
 }
